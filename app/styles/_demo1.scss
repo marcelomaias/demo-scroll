@@ -1,0 +1,87 @@
+figure {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+// [data-scroll] {
+//   transition: opacity 1s;
+
+//   img {
+//     transform: scale(calc(0.8 + 0.2 * var(--visible-y)));
+//   }
+// }
+// [data-scroll="in"] {
+//   opacity: 1;
+// }
+// [data-scroll="out"] {
+//   opacity: 0;
+// }
+
+section {
+  position: relative;
+  --scroll-length: 1.5;
+  height: calc(var(--scroll-length) * 100vh);
+  width: 100%;
+}
+figure {
+  --scale: calc(0.8 + (0.2 * var(--scroll-length) * var(--visible-y)));
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  will-change: transform;
+  transform: scale(var(--scale));
+
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   z-index: 1;
+  //   background-color: rgba(black, 1);
+  //   opacity: calc(var(--visible-y));
+  // }
+
+  > img {
+    display: block;
+    will-change: transform;
+    transform: scale(calc(1 / var(--scale)));
+  }
+}
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 35em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba($color: #000000, $alpha: 0.75);
+  padding: 2em;
+  font-size: 2.5vmin;
+  max-width: 45%;
+  opacity: 1;
+  opacity: calc(1 + var(--viewport-y));
+  h2,
+  p {
+    margin: 0 0 6px 0;
+  }
+}
