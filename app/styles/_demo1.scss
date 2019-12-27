@@ -46,17 +46,17 @@ figure {
   will-change: transform;
   transform: scale(var(--scale));
 
-  // &:before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   z-index: 1;
-  //   background-color: rgba(black, 1);
-  //   opacity: calc(var(--visible-y));
-  // }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(black, 1);
+    opacity: calc(var(--visible-y) * 0.75);
+  }
 
   > img {
     display: block;
@@ -74,14 +74,23 @@ figure {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: rgba($color: #000000, $alpha: 0.75);
+  color: rgba($color: #ffffff, $alpha: 0.75);
   padding: 2em;
   font-size: 2.5vmin;
   max-width: 45%;
   opacity: 1;
-  opacity: calc(1 + var(--viewport-y));
+  // opacity: calc(0.5 + var(--viewport-y));
   h2,
   p {
     margin: 0 0 6px 0;
   }
+  h2 {
+    font-size: 3em;
+  }
+}
+
+.char {
+  display: inline-block;
+  opacity: calc(1 + (var(--viewport-y) * 2) - var(--char-percent));
+  // transform: translateY(calc(1em * var(--viewport-y) * var(--char-percent)));
 }

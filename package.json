@@ -4,7 +4,8 @@
     "node": ">=4"
   },
   "dependencies": {
-    "scroll-out": "^2.2.7"
+    "scroll-out": "^2.2.7",
+    "splitting": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
